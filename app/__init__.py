@@ -1,0 +1,3 @@
+# App package for Hololive TCG card search backend
+
+# Nothing here...
