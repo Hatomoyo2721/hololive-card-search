@@ -58,5 +58,5 @@ http://127.0.0.1:5000
 
 <br>
 
-> This project will be expanded in the future... maybe :D
+> This project will be expanded in the future... :D maybe
 > Depends on motivation, free time, and coffee ☕...
