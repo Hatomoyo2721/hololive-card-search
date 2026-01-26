@@ -31,6 +31,15 @@ This is **_not an official product_**, made purely for personal interest
 
 <br>
 
+> [!IMPORTANT]
+> **Python 3.13 is recommended.**
+>
+> - Python **3.10 – 3.12** may work, but is **not fully tested**
+> - Python **3.14+ is currently not supported** due to dependency issues
+
+
+<br>
+
 > [!NOTE]
 > Note: FastAPI and uvicorn are included in requirements.txt for future experiments
 > The current app runs with **Flask only**
