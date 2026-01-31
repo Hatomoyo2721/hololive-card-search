@@ -5,13 +5,27 @@ let allCards = [];
 
 const container = document.getElementById("card-container");
 const searchInput = document.getElementById("search");
+const themeBtn = document.getElementById("theme-btn");
 
+
+// Normalize text for case-insensitive comparison
 function normalize(text) {
-  return text.toLowerCase();
+  return text ? text.toLowerCase() : "";
 }
 
+
+// Debounce function to limit the rate of function calls
+function debounce(func, wait) {
+  let timeout;
+  return function(...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
+  };
+}
+
+// Render cards to the container
 function render(cards) {
-  container.innerHTML = "";
+  const fragment = document.createDocumentFragment();
 
   cards.forEach(card => {
     const div = document.createElement("div");
@@ -19,10 +33,8 @@ function render(cards) {
 
     const img = document.createElement("img");
     img.src = resolveImage(card);
-    
-    img.onerror = () => {
-      img.src = "/static/assets/placeholder.webp";
-    };
+    img.loading = "lazy";
+    img.onerror = () => { img.src = "/static/assets/placeholder.webp"; };
 
     const title = document.createElement("div");
     title.className = "card-title";
@@ -36,29 +48,49 @@ function render(cards) {
     div.appendChild(title);
     div.appendChild(code);
 
-    container.appendChild(div);
+    fragment.appendChild(div);
   });
+
+  container.innerHTML = "";
+  container.appendChild(fragment);
 }
 
 function filterCards(keyword) {
   const key = normalize(keyword);
-
   return allCards.filter(card =>
     normalize(card.name).includes(key) ||
     normalize(card.card_number).includes(key)
   );
 }
 
+// Theme Logic
+function initTheme() {
+  const root = document.documentElement;
+  const saved = localStorage.getItem("theme") || "light";
+  root.className = saved;
+
+  themeBtn.addEventListener("click", () => {
+    const isDark = root.classList.contains("dark");
+    const newTheme = isDark ? "light" : "dark";
+    
+    root.className = newTheme;
+    localStorage.setItem("theme", newTheme);
+  });
+}
+
+// Main init 
 (async function init() {
+  initTheme();
+
   allCards = await fetchAllCards();
   render(allCards);
 
-  searchInput.addEventListener("input", e => {
+  searchInput.addEventListener("input", debounce((e) => {
     const value = e.target.value.trim();
     if (!value) {
       render(allCards);
     } else {
       render(filterCards(value));
     }
-  });
+  }, 267)); // 267ms debounce for input
 })();
