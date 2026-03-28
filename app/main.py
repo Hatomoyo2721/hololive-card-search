@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template, request
 from app.database import get_connection
 
 app = Flask(__name__)
@@ -10,15 +10,25 @@ def home():
 
 @app.route("/cards")
 def get_cards():
+    keyword = request.args.get("q", "").strip()
+    
     conn = get_connection()
     cur = conn.cursor()
 
-    cur.execute("""
-        SELECT name_en, card_number, card_index, version
-        FROM cards
-        ORDER BY version, card_index
-    """)
-
+    if keyword:
+        cur.execute("""
+            SELECT name_en, card_number, card_index, version
+            FROM cards
+            WHERE name_en LIKE ? OR card_number LIKE ?
+            ORDER BY version, card_index
+        """, (f"%{keyword}%", f"%{keyword}%"))
+    else:
+        cur.execute("""
+            SELECT name_en, card_number, card_index, version
+            FROM cards
+            ORDER BY version, card_index
+        """)
+        
     rows = cur.fetchall()
     conn.close()
 

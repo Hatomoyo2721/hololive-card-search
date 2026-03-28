@@ -1,31 +1,17 @@
-import { fetchAllCards } from "./apiClient.js";
 import { resolveImage } from "./imageResolver.js";
-
-let allCards = [];
 
 const container = document.getElementById("card-container");
 const searchInput = document.getElementById("search");
-const themeBtn = document.getElementById("theme-btn");
+const searchBtn = document.getElementById("search-btn");
 
-
-// Normalize text for case-insensitive comparison
-function normalize(text) {
-  return text ? text.toLowerCase() : "";
-}
-
-
-// Debounce function to limit the rate of function calls
-function debounce(func, wait) {
-  let timeout;
-  return function (...args) {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func.apply(this, args), wait);
-  };
-}
-
-// Render cards to the container
+// Render cards
 function render(cards) {
   const fragment = document.createDocumentFragment();
+
+  if (!cards || cards.length === 0) {
+    container.innerHTML = "<p>No results found</p>";
+    return;
+  }
 
   cards.forEach(card => {
     const div = document.createElement("div");
@@ -34,7 +20,9 @@ function render(cards) {
     const img = document.createElement("img");
     img.src = resolveImage(card);
     img.loading = "lazy";
-    img.onerror = () => { img.src = "/static/assets/placeholder.webp"; };
+    img.onerror = () => {
+      img.src = "/static/assets/placeholder.webp";
+    };
 
     const title = document.createElement("div");
     title.className = "card-title";
@@ -55,43 +43,55 @@ function render(cards) {
   container.appendChild(fragment);
 }
 
-function filterCards(keyword) {
-  const key = normalize(keyword);
-  return allCards.filter(card =>
-    normalize(card.name).includes(key) ||
-    normalize(card.card_number).includes(key)
-  );
+// Fetch from backend
+async function fetchCards(keyword = "") {
+  try {
+    const res = await fetch(`/cards?q=${encodeURIComponent(keyword)}`);
+    const data = await res.json();
+    render(data);
+  } catch (err) {
+    console.error("Fetch error:", err);
+    container.innerHTML = "<p>Error loading cards</p>";
+  }
 }
 
-// Theme Logic
+// Theme
 function initTheme() {
   const root = document.documentElement;
   const toggleBtn = document.getElementById("theme-toggle");
 
   const savedTheme = localStorage.getItem("theme") || "light";
   root.className = savedTheme;
-  toggleBtn.addEventListener("click", () => {
-    const isDark = root.classList.contains("dark");
-    const newTheme = isDark ? "light" : "dark";
-    root.className = newTheme;
 
-    localStorage.setItem("theme", newTheme);
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      const isDark = root.classList.contains("dark");
+      const newTheme = isDark ? "light" : "dark";
+      root.className = newTheme;
+
+      localStorage.setItem("theme", newTheme);
+    });
+  }
+}
+
+// Events
+function initEvents() {
+  searchBtn.addEventListener("click", () => {
+    const keyword = searchInput.value.trim();
+    fetchCards(keyword);
+  });
+
+  searchInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      searchBtn.click();
+    }
   });
 }
 
-// Main init 
+// Init
 (async function init() {
   initTheme();
+  initEvents();
 
-  allCards = await fetchAllCards();
-  render(allCards);
-
-  searchInput.addEventListener("input", debounce((e) => {
-    const value = e.target.value.trim();
-    if (!value) {
-      render(allCards);
-    } else {
-      render(filterCards(value));
-    }
-  }, 267)); // 267ms debounce for input
+  await fetchCards();
 })();

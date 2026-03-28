@@ -8,4 +8,3 @@ def get_connection():
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row # row_factory helps to return rows as dictionaries for easier access (important for FastAPI)
     return conn
-

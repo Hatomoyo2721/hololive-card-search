@@ -25,15 +25,14 @@
   </header>
 
   <div class="layout">
-    <aside class="sidebar">
-      <h2>Filters</h2>
-      <label><input type="checkbox" disabled> Rare</label>
-      <label><input type="checkbox" disabled> Foil</label>
-      <label><input type="checkbox" disabled> Promo</label>
-    </aside>
-
     <main class="content">
-      <input type="text" id="search" placeholder="Search card name or ID..." autocomplete="off" />
+      <div class="search-box">
+        <input type="text" id="search" placeholder="Search card name or ID..." autocomplete="off" />
+        <button id="search-btn" aria-label="Search cards">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+
       <div id="card-container">
       </div>
     </main>
