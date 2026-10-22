@@ -1,17 +1,47 @@
+import { fetchCards } from "./apiClient.js";
 import { resolveImage } from "./imageResolver.js";
 
 const container = document.getElementById("card-container");
 const searchInput = document.getElementById("search");
 const searchBtn = document.getElementById("search-btn");
+const boosterFilter = document.getElementById("booster-filter");
 
-// Render cards
+function renderLoading() {
+  container.innerHTML = `
+    <div class="state-message">
+      <i class="fa-solid fa-spinner fa-spin"></i>
+      <p>Loading cards...</p>
+    </div>
+  `;
+}
+
+function renderEmpty() {
+  container.innerHTML = `
+    <div class="state-message">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <p>No cards found</p>
+      <span>Try another card name, card number, or booster pack.</span>
+    </div>
+  `;
+}
+
+function renderError() {
+  container.innerHTML = `
+    <div class="state-message">
+      <i class="fa-solid fa-circle-exclamation"></i>
+      <p>Unable to load cards</p>
+      <span>Please try again later.</span>
+    </div>
+  `;
+}
+
 function render(cards) {
-  const fragment = document.createDocumentFragment();
-
   if (!cards || cards.length === 0) {
-    container.innerHTML = "<p>No results found</p>";
+    renderEmpty();
     return;
   }
+
+  const fragment = document.createDocumentFragment();
 
   cards.forEach(card => {
     const div = document.createElement("div");
@@ -43,19 +73,21 @@ function render(cards) {
   container.appendChild(fragment);
 }
 
-// Fetch from backend
-async function fetchCards(keyword = "") {
+async function searchCards() {
+  const keyword = searchInput.value.trim();
+  const booster = boosterFilter.value;
+
+  renderLoading();
+
   try {
-    const res = await fetch(`/cards?q=${encodeURIComponent(keyword)}`);
-    const data = await res.json();
-    render(data);
+    const cards = await fetchCards(keyword, booster);
+    render(cards);
   } catch (err) {
     console.error("Fetch error:", err);
-    container.innerHTML = "<p>Error loading cards</p>";
+    renderError();
   }
 }
 
-// Theme
 function initTheme() {
   const root = document.documentElement;
   const toggleBtn = document.getElementById("theme-toggle");
@@ -67,31 +99,28 @@ function initTheme() {
     toggleBtn.addEventListener("click", () => {
       const isDark = root.classList.contains("dark");
       const newTheme = isDark ? "light" : "dark";
-      root.className = newTheme;
 
+      root.className = newTheme;
       localStorage.setItem("theme", newTheme);
     });
   }
 }
 
-// Events
 function initEvents() {
-  searchBtn.addEventListener("click", () => {
-    const keyword = searchInput.value.trim();
-    fetchCards(keyword);
-  });
+  searchBtn.addEventListener("click", searchCards);
 
   searchInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
-      searchBtn.click();
+      searchCards();
     }
   });
+
+  boosterFilter.addEventListener("change", searchCards);
 }
 
-// Init
 (async function init() {
   initTheme();
   initEvents();
 
-  await fetchCards();
+  await searchCards();
 })();

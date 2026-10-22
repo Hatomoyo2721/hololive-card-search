@@ -8,3 +8,5 @@ sql-data/
 # OS
 .DS_Store
 Thumbs.db
+
+data/hBP*

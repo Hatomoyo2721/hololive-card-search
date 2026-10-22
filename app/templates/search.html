@@ -21,16 +21,31 @@
       <i class="fa-solid fa-sun"></i>
       <i class="fa-solid fa-moon"></i>
     </button>
-    
+
   </header>
 
   <div class="layout">
     <main class="content">
-      <div class="search-box">
-        <input type="text" id="search" placeholder="Search card name or ID..." autocomplete="off" />
-        <button id="search-btn" aria-label="Search cards">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
+      <div class="search-controls">
+        <div class="search-box">
+          <input type="text" id="search" placeholder="Search card name or ID..." autocomplete="off" />
+
+          <button id="search-btn" aria-label="Search cards">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+
+        <select id="booster-filter" aria-label="Filter by booster pack">
+          <option value="">All Booster Packs</option>
+          <option value="hBP01">hBP01 - Blooming Radiance</option>
+          <option value="hBP02">hBP02 - Quintet Spectrum</option>
+          <option value="hBP03">hBP03 - Elite Spark</option>
+          <option value="hBP04">hBP04 - Curious Universe</option>
+          <option value="hBP05">hBP05 - Enchant Regalia</option>
+          <option value="hBP06">hBP06 - Ayakashi Vermillion</option>
+          <option value="hBP07">hBP07 - Diva Fever</option>
+          <option value="hBP08">hBP08 - Bouncer Bound</option>
+        </select>
       </div>
 
       <div id="card-container">
