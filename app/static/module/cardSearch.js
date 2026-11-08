@@ -60,7 +60,7 @@ function render(cards) {
 
     const code = document.createElement("div");
     code.className = "card-code";
-    code.textContent = card.card_number;
+    code.textContent = card.card_number + (card.rarity ? ` - ${card.rarity}` : "");
 
     div.appendChild(img);
     div.appendChild(title);

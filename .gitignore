@@ -10,3 +10,13 @@ sql-data/
 Thumbs.db
 
 data/hBP*
+
+app/static/assets/*
+
+app/static/assets/hBP01-BloomingRadiance/*
+!app/static/assets/hBP01-BloomingRadiance/hBP01-001-OSR.png
+!app/static/assets/hBP01-BloomingRadiance/hBP01-001-OUR.png
+!app/static/assets/hBP01-BloomingRadiance/hBP01-002-OSR.png
+!app/static/assets/hBP01-BloomingRadiance/hBP01-002-OUR.png
+!app/static/assets/hBP01-BloomingRadiance/hBP01-003-OSR.png
+!app/static/assets/hBP01-BloomingRadiance/hBP01-003-OUR.png

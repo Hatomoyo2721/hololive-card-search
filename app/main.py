@@ -18,7 +18,7 @@ def get_cards():
     cur = conn.cursor()
 
     query = """
-        SELECT name_en, card_number, card_index, version
+        SELECT name_en, card_number, card_index, version, rarity
         FROM cards
         WHERE 1=1
     """
@@ -26,9 +26,19 @@ def get_cards():
 
     if keyword:
         query += """
-            AND (name_en LIKE ? OR card_number LIKE ?)
+            AND (
+                name_en LIKE ?
+                OR card_number LIKE ?
+                OR rarity LIKE ?
+            )
         """
-        params.extend([f"%{keyword}%", f"%{keyword}%"])
+        params.extend(
+            [
+                f"%{keyword}%",
+                f"%{keyword}%",
+                f"%{keyword}%",
+            ]
+        )
 
     if booster:
         query += """
@@ -52,6 +62,7 @@ def get_cards():
                 "card_number": r["card_number"],
                 "card_index": r["card_index"],
                 "version": r["version"],
+                "rarity": r["rarity"],
             }
             for r in rows
         ]
