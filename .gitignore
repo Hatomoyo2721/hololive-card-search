@@ -27,6 +27,12 @@ app/static/assets/hBP01-BloomingRadiance/*
 # hBP02 - Quintet Spectrum
 !app/static/assets/hBP02-QuintetSpectrum/
 app/static/assets/hBP02-QuintetSpectrum/*
+!app/static/assets/hBP02-QuintetSpectrum/hBP02-001-SEC.png
+!app/static/assets/hBP02-QuintetSpectrum/hBP02-003-SEC.png
+!app/static/assets/hBP02-QuintetSpectrum/hBP02-004-SEC.png
+!app/static/assets/hBP02-QuintetSpectrum/hBP02-047-UR.png
+!app/static/assets/hBP02-QuintetSpectrum/hBP02-059-UR.png
+!app/static/assets/hBP02-QuintetSpectrum/hBP02-064-UR.png
 
 # hBP03 - Elite Spark
 !app/static/assets/hBP03-EliteSpark/
