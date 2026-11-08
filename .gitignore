@@ -11,12 +11,43 @@ Thumbs.db
 
 data/hBP*
 
+
 app/static/assets/*
 
+# hBP01 - Blooming Radiance
+!app/static/assets/hBP01-BloomingRadiance/
 app/static/assets/hBP01-BloomingRadiance/*
-!app/static/assets/hBP01-BloomingRadiance/hBP01-001-OSR.png
-!app/static/assets/hBP01-BloomingRadiance/hBP01-001-OUR.png
-!app/static/assets/hBP01-BloomingRadiance/hBP01-002-OSR.png
-!app/static/assets/hBP01-BloomingRadiance/hBP01-002-OUR.png
-!app/static/assets/hBP01-BloomingRadiance/hBP01-003-OSR.png
-!app/static/assets/hBP01-BloomingRadiance/hBP01-003-OUR.png
+!app/static/assets/hBP01-BloomingRadiance/hBP01-006-SEC.png
+!app/static/assets/hBP01-BloomingRadiance/hBP01-007-SEC.png
+!app/static/assets/hBP01-BloomingRadiance/hBP01-008-OSR.png
+!app/static/assets/hBP01-BloomingRadiance/hBP01-014-UR.png
+!app/static/assets/hBP01-BloomingRadiance/hBP01-047-UR.png
+!app/static/assets/hBP01-BloomingRadiance/hBP01-081-UR.png
+
+# hBP02 - Quintet Spectrum
+!app/static/assets/hBP02-QuintetSpectrum/
+app/static/assets/hBP02-QuintetSpectrum/*
+
+# hBP03 - Elite Spark
+!app/static/assets/hBP03-EliteSpark/
+app/static/assets/hBP03-EliteSpark/*
+
+# hBP04 - Curious Universe
+!app/static/assets/hBP04-CuriousUniverse/
+app/static/assets/hBP04-CuriousUniverse/*
+
+# hBP05 - Enchant Legalia
+!app/static/assets/hBP05-EnchantLegalia/
+app/static/assets/hBP05-EnchantLegalia/*
+
+# hBP06 - Ayakashi Vermillion
+!app/static/assets/hBP06-AyakashiVermillion/
+app/static/assets/hBP06-AyakashiVermillion/*
+
+# hBP07 - Diva Fever
+!app/static/assets/hBP07-DivaFever/
+app/static/assets/hBP07-DivaFever/*
+
+# hBP08 - Bouncer Bound
+!app/static/assets/hBP08-BouncerBound/
+app/static/assets/hBP08-BouncerBound/*
