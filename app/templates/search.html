@@ -21,18 +21,78 @@
       <i class="fa-solid fa-sun"></i>
       <i class="fa-solid fa-moon"></i>
     </button>
-
   </header>
 
   <div class="layout">
     <main class="content">
+
       <div class="search-controls">
+
         <div class="search-box">
-          <input type="text" id="search" placeholder="Search card name or ID..." autocomplete="off" />
+
+          <div class="search-input-wrapper">
+            <i class="fa-solid fa-magnifying-glass search-input-icon"></i>
+
+            <input type="text" id="search" placeholder="Search card name, ID or rarity..." autocomplete="off" />
+          </div>
 
           <button id="search-btn" aria-label="Search cards">
             <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Search</span>
           </button>
+
+          <div class="search-help" tabindex="0">
+
+            <button type="button" class="info-btn" aria-label="Search guide" aria-expanded="false">
+              <i class="fa-solid fa-circle-info"></i>
+            </button>
+
+            <div class="search-tooltip">
+              <div class="tooltip-header">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>Search Guide</span>
+              </div>
+
+              <div class="tooltip-section">
+                <h3>Search by Name or Card ID</h3>
+                <div class="example-list">
+                  <code>Suisei</code>
+                  <code>hBP01-001</code>
+                </div>
+              </div>
+
+              <div class="tooltip-section">
+                <h3>Search by Rarity</h3>
+                <code class="rarity-example">rarity=OUR</code>
+              </div>
+
+              <div class="tooltip-section">
+                <h3>Basic Rarities</h3>
+                <div class="rarity-list">
+                  <div><b>C</b><span>Common</span></div>
+                  <div><b>U</b><span>Uncommon</span></div>
+                  <div><b>R</b><span>Rare</span></div>
+                  <div><b>RR</b><span>Double Rare</span></div>
+                  <div><b>OSR</b><span>Oshi Super Rare</span></div>
+                </div>
+              </div>
+
+              <div class="tooltip-section">
+                <h3>Parallel / Secret Rarities</h3>
+                <div class="rarity-list">
+                  <div><b>S</b><span>Special</span></div>
+                  <div><b>SR</b><span>Super Rare</span></div>
+                  <div><b>SY</b><span>Special Yell</span></div>
+                  <div><b>HR</b><span>Holomem Rare</span></div>
+                  <div><b>UR</b><span>Ultra Rare</span></div>
+                  <div><b>OUR</b><span>Oshi Ultra Rare</span></div>
+                  <div><b>SEC</b><span>Secret Rare</span></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
 
         <select id="booster-filter" aria-label="Filter by booster pack">
@@ -46,10 +106,11 @@
           <option value="hBP07">hBP07 - Diva Fever</option>
           <option value="hBP08">hBP08 - Bouncer Bound</option>
         </select>
+
       </div>
 
-      <div id="card-container">
-      </div>
+      <div id="card-container"></div>
+
     </main>
   </div>
 

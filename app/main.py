@@ -25,20 +25,32 @@ def get_cards():
     params = []
 
     if keyword:
-        query += """
-            AND (
-                name_en LIKE ?
-                OR card_number LIKE ?
-                OR rarity LIKE ?
+        if keyword.lower().startswith("rarity="):
+            rarity_keyword = keyword.split("=", 1)[1].strip().upper()
+
+            if rarity_keyword:
+                query += """
+                    AND UPPER(TRIM(rarity)) = ?
+                """
+                params.append(rarity_keyword)
+            else:
+                query += """
+                    AND 1 = 0
+                """
+
+        else:
+            query += """
+                AND (
+                    name_en LIKE ?
+                    OR card_number LIKE ?
+                )
+            """
+            params.extend(
+                [
+                    f"%{keyword}%",
+                    f"%{keyword}%",
+                ]
             )
-        """
-        params.extend(
-            [
-                f"%{keyword}%",
-                f"%{keyword}%",
-                f"%{keyword}%",
-            ]
-        )
 
     if booster:
         query += """

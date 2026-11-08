@@ -106,6 +106,35 @@ function initTheme() {
   }
 }
 
+function initSearchGuide() {
+  const searchHelp = document.querySelector(".search-help");
+  const infoButton = document.querySelector(".info-btn");
+
+  if (!searchHelp || !infoButton) return;
+
+  infoButton.addEventListener("click", (event) => {
+    event.stopPropagation();
+
+    const isOpen = searchHelp.classList.toggle("is-open");
+
+    infoButton.setAttribute("aria-expanded", isOpen);
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!searchHelp.contains(event.target)) {
+      searchHelp.classList.remove("is-open");
+      infoButton.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      searchHelp.classList.remove("is-open");
+      infoButton.setAttribute("aria-expanded", "false");
+    }
+  });
+}
+
 function initEvents() {
   searchBtn.addEventListener("click", searchCards);
 
@@ -121,6 +150,7 @@ function initEvents() {
 (async function init() {
   initTheme();
   initEvents();
+  initSearchGuide();
 
   await searchCards();
 })();
