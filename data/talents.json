@@ -1,83 +1,121 @@
 {
-  "AZKi": "AZKi",
-  "IRyS": "IRyS",
-  "がうる・ぐら": "Gawr Gura",
-  "こぼ・かなえる": "Kobo Kanaeru",
-  "さくらみこ": "Sakura Miko",
-  "ときのそら": "Tokino Sora",
-  "アイラニ・イオフィフティーン": "Airani Iofifteen",
-  "アキ・ローゼンタール": "Aki Rosenthal",
-  "アユンダ・リス": "Ayunda Risu",
-  "アーニャ・メルフィッサ": "Anya Melfissa",
-  "エリザベス・ローズ・ブラッドフレイム": "Elizabeth Rose Bloodflame",
-  "オーロ・クロニー": "Ouro Kronii",
-  "カエラ・コヴァルスキア": "Kaela Kovalskia",
-  "クレイジー・オリー": "Kureiji Ollie",
-  "シオリ・ノヴェラ": "Shiori Novella",
-  "ジジ・ムリン": "Gigi Murin",
-  "セシリア・イマーグリーン": "Cecilia Immergreen",
-  "セレス・ファウナ": "Ceres Fauna",
-  "ネリッサ・レイヴンクロフト": "Nerissa Ravencroft",
-  "ハコス・ベールズ": "Hakos Baelz",
-  "パヴォリア・レイネ": "Pavolia Reine",
-  "フワワ・アビスガード": "Fuwawa Abyssgard",
-  "ベスティア・ゼータ": "Vestia Zeta",
-  "ムーナ・ホシノヴァ": "Moona Hoshinova",
-  "モココ・アビスガード": "Mococo Abyssgard",
-  "ラオーラ・パンテーラ": "Raora Panthera",
-  "ラプラス・ダークネス": "La+ Darknesss",
-  "ロボ子さん": "Robocosan",
-  "ワトソン・アメリア": "Watson Amelia",
-  "一伊那尓栖": "Ninomae Ina'nis",
-  "一条莉々華": "Ichijou Ririka",
-  "七詩ムメイ": "Nanashi Mumei",
-  "不知火フレア": "Shiranui Flare",
-  "九十九佐命": "Tsukumo Sana",
-  "井月みちる": "Izuki Michiru",
-  "儒烏風亭らでん": "Juufuutei Raden",
-  "兎田ぺこら": "Usada Pekora",
-  "博衣こより": "Hakui Koyori",
-  "古石ビジュー": "Koseki Bijou",
-  "夏色まつり": "Natsuiro Matsuri",
-  "大神ミオ": "Ookami Mio",
-  "大空スバル": "Oozora Subaru",
-  "天音かなた": "Amane Kanata",
-  "姫森ルーナ": "Himemori Luna",
-  "宙科そぴあ": "Sorashina Sopia",
-  "宝鐘マリン": "Houshou Marine",
-  "小鳥遊キアラ": "Takanashi Kiara",
-  "尾丸ポルカ": "Omaru Polka",
-  "常闇トワ": "Tokoyami Towa",
-  "戌神ころね": "Inugami Korone",
-  "星街すいせい": "Hoshimachi Suisei",
-  "桃鈴ねね": "Momosuzu Nene",
-  "桐生ココ": "Kiryu Coco",
-  "森カリオペ": "Mori Calliope",
-  "水宮枢": "Mizumiya Su",
-  "沙花叉クロヱ": "Sakamata Chloe",
-  "湊あくあ": "Minato Aqua",
-  "火威青": "Hiodoshi Ao",
-  "熱千めら": "Achichi Mela",
-  "猫又おかゆ": "Nekomata Okayu",
-  "獅白ぼたん": "Shishiro Botan",
-  "癒月ちょこ": "Yuzuki Choco",
-  "白上フブキ": "Shirakami Fubuki",
-  "白銀ノエル": "Shirogane Noel",
-  "百灯キョーコ": "Hyakuto Kyoko",
-  "百鬼あやめ": "Nakiri Ayame",
-  "紫咲シオン": "Murasaki Shion",
-  "綺々羅々ヴィヴィ": "Kikirara Vivi",
-  "花園さやか": "Hanazono Sayaka",
-  "虎金妃笑虎": "Koganei Niko",
-  "角巻わため": "Tsunomaki Watame",
-  "赤井はあと": "Akai Haato",
-  "輪堂千速": "Rindo Chihaya",
-  "轟はじめ": "Todoroki Hajime",
-  "鈴鳴つづり": "Suzuna Tsuzuri",
-  "雪花ラミィ": "Yukihana Lamy",
-  "音乃瀬奏": "Otonose Kanade",
-  "響咲リオナ": "Isaki Riona",
-  "風白ゆき": "Kazeshiro Yuki",
-  "風真いろは": "Kazama Iroha",
-  "鷹嶺ルイ": "Takane Lui"
+  "hololive Gen 0": {
+    "ときのそら": "Tokino Sora",
+    "ロボ子さん": "Robocosan",
+    "AZKi": "AZKi",
+    "さくらみこ": "Sakura Miko",
+    "星街すいせい": "Hoshimachi Suisei"
+  },
+  "hololive Gen 1": {
+    "アキ・ローゼンタール": "Aki Rosenthal",
+    "赤井はあと": "Akai Haato",
+    "白上フブキ": "Shirakami Fubuki",
+    "夏色まつり": "Natsuiro Matsuri"
+  },
+  "hololive Gen 2": {
+    "百鬼あやめ": "Nakiri Ayame",
+    "癒月ちょこ": "Yuzuki Choco",
+    "大空スバル": "Oozora Subaru",
+    "湊あくあ": { "name": "Minato Aqua", "graduated": true },
+    "紫咲シオン": { "name": "Murasaki Shion", "graduated": true }
+  },
+  "hololive GAMERS": {
+    "大神ミオ": "Ookami Mio",
+    "猫又おかゆ": "Nekomata Okayu",
+    "戌神ころね": "Inugami Korone"
+  },
+  "hololive Gen 3": {
+    "兎田ぺこら": "Usada Pekora",
+    "不知火フレア": "Shiranui Flare",
+    "白銀ノエル": "Shirogane Noel",
+    "宝鐘マリン": "Houshou Marine"
+  },
+  "hololive Gen 4": {
+    "角巻わため": "Tsunomaki Watame",
+    "常闇トワ": "Tokoyami Towa",
+    "姫森ルーナ": "Himemori Luna",
+    "天音かなた": { "name": "Amane Kanata", "graduated": true },
+    "桐生ココ": { "name": "Kiryu Coco", "graduated": true }
+  },
+  "hololive Gen 5": {
+    "雪花ラミィ": "Yukihana Lamy",
+    "桃鈴ねね": "Momosuzu Nene",
+    "獅白ぼたん": "Shishiro Botan",
+    "尾丸ポルカ": "Omaru Polka"
+  },
+  "hololive holoX (Gen 6)": {
+    "ラプラス・ダークネス": "La+ Darknesss",
+    "鷹嶺ルイ": "Takane Lui",
+    "博衣こより": "Hakui Koyori",
+    "沙花叉クロヱ": { "name": "Sakamata Chloe", "graduated": true },
+    "風真いろは": "Kazama Iroha"
+  },
+  "hololive Indonesia - AREA15 (Gen 1)": {
+    "アユンダ・リス": "Ayunda Risu",
+    "ムーナ・ホシノヴァ": "Moona Hoshinova",
+    "アイラニ・イオフィフティーン": "Airani Iofifteen"
+  },
+  "hololive Indonesia - holoro (Gen 2)": {
+    "クレイジー・オリー": "Kureiji Ollie",
+    "アーニャ・メルフィッサ": "Anya Melfissa",
+    "パヴォリア・レイネ": "Pavolia Reine"
+  },
+  "hololive Indonesia - holoh3ro (Gen 3)": {
+    "ベスティア・ゼータ": "Vestia Zeta",
+    "カエラ・コヴァルスキア": "Kaela Kovalskia",
+    "こぼ・かなえる": "Kobo Kanaeru"
+  },
+  "hololive English - Myth": {
+    "森カリオペ": "Mori Calliope",
+    "小鳥遊キアラ": "Takanashi Kiara",
+    "一伊那尓栖": "Ninomae Ina'nis",
+    "ワトソン・アメリア": { "name": "Watson Amelia", "graduated": true },
+    "がうる・ぐら": { "name": "Gawr Gura", "graduated": true }
+  },
+  "hololive English - Promise": {
+    "IRyS": "IRyS",
+    "オーロ・クロニー": "Ouro Kronii",
+    "ハコス・ベールズ": "Hakos Baelz",
+    "セレス・ファウナ": { "name": "Ceres Fauna", "graduated": true },
+    "七詩ムメイ": { "name": "Nanashi Mumei", "graduated": true },
+    "九十九佐命": { "name": "Tsukumo Sana", "graduated": true }
+  },
+  "hololive English - Advent": {
+    "シオリ・ノヴェラ": "Shiori Novella",
+    "古石ビジュー": "Koseki Bijou",
+    "ネリッサ・レイヴンクロフト": "Nerissa Ravencroft",
+    "フワワ・アビスガード": "Fuwawa Abyssgard",
+    "モココ・アビスガード": "Mococo Abyssgard"
+  },
+  "hololive English - Justice": {
+    "エリザベス・ローズ・ブラッドフレイム": "Elizabeth Rose Bloodflame",
+    "ジジ・ムリン": "Gigi Murin",
+    "セシリア・イマーグリーン": "Cecilia Immergreen",
+    "ラオーラ・パンテーラ": "Raora Panthera"
+  },
+  "hololive DEV_IS - ReGLOSS": {
+    "音乃瀬奏": "Otonose Kanade",
+    "一条莉々華": "Ichijou Ririka",
+    "儒烏風亭らでん": "Juufuutei Raden",
+    "轟はじめ": "Todoroki Hajime",
+    "火威青": { "name": "Hiodoshi Ao", "graduated": true }
+  },
+  "hololive DEV_IS - FLOW GLOW": {
+    "響咲リオナ": "Isaki Riona",
+    "虎金妃笑虎": "Koganei Niko",
+    "水宮枢": "Mizumiya Su",
+    "輪堂千速": "Rindo Chihaya",
+    "綺々羅々ヴィヴィ": "Kikirara Vivi"
+  },
+  "ASOBI★MAWARI-TAI!": {
+    "熱千めら": "Achichi Mela",
+    "宙科そぴあ": "Sorashina Sopia",
+    "鈴鳴つづり": "Suzuna Tsuzuri",
+    "百灯キョーコ": "Hyakuto Kyoko"
+  },
+  "holoAN": {
+    "井月みちる": "Izuki Michiru",
+    "花園さやか": "Hanazono Sayaka",
+    "風白ゆき": "Kazeshiro Yuki"
+  }
 }
