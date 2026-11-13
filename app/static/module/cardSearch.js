@@ -1,10 +1,12 @@
 import { fetchCards } from "./apiClient.js";
-import { resolveImage } from "./imageResolver.js";
+import { getImageCandidates } from "./imageResolver.js";
 
 const container = document.getElementById("card-container");
 const searchInput = document.getElementById("search");
 const searchBtn = document.getElementById("search-btn");
 const boosterFilter = document.getElementById("booster-filter");
+
+let activeRequest = null;
 
 function renderLoading() {
   container.innerHTML = `
@@ -48,15 +50,32 @@ function render(cards) {
     div.className = "card";
 
     const img = document.createElement("img");
-    img.src = resolveImage(card);
+    const candidates = getImageCandidates(card);
+    let candidateIndex = 0;
+
+    img.src = candidates[candidateIndex];
     img.loading = "lazy";
     img.onerror = () => {
-      img.src = "/static/assets/placeholder.webp";
+      if (candidateIndex >= candidates.length - 1) {
+        img.onerror = null;
+        return;
+      }
+
+      candidateIndex += 1;
+      img.src = candidates[candidateIndex];
     };
 
     const title = document.createElement("div");
     title.className = "card-title";
     title.textContent = card.name;
+
+    const originalName = card.original_name || "";
+
+    if (originalName && originalName !== card.name) {
+      title.title = originalName;
+    }
+
+    img.alt = card.name;
 
     const code = document.createElement("div");
     code.className = "card-code";
@@ -77,12 +96,24 @@ async function searchCards() {
   const keyword = searchInput.value.trim();
   const booster = boosterFilter.value;
 
+  if (activeRequest) {
+    activeRequest.abort();
+  }
+
+  activeRequest = new AbortController();
+  const { signal } = activeRequest;
+
   renderLoading();
 
   try {
-    const cards = await fetchCards(keyword, booster);
+    const cards = await fetchCards(keyword, booster, signal);
+
+    if (signal.aborted) return;
+
     render(cards);
   } catch (err) {
+    if (err.name === "AbortError") return;
+
     console.error("Fetch error:", err);
     renderError();
   }
@@ -138,7 +169,7 @@ function initSearchGuide() {
 function initEvents() {
   searchBtn.addEventListener("click", searchCards);
 
-  searchInput.addEventListener("keypress", (e) => {
+  searchInput.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       searchCards();
     }

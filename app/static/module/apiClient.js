@@ -1,4 +1,4 @@
-export async function fetchCards(keyword = "", booster = "") {
+export async function fetchCards(keyword = "", booster = "", signal) {
   const params = new URLSearchParams();
 
   if (keyword) {
@@ -12,7 +12,7 @@ export async function fetchCards(keyword = "", booster = "") {
   const query = params.toString();
   const url = query ? `/cards?${query}` : "/cards";
 
-  const res = await fetch(url);
+  const res = await fetch(url, { signal });
 
   if (!res.ok) {
     throw new Error(`HTTP ${res.status}`);
