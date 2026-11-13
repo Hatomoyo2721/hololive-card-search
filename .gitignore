@@ -37,14 +37,20 @@ app/static/assets/hBP02-QuintetSpectrum/*
 # hBP03 - Elite Spark
 !app/static/assets/hBP03-EliteSpark/
 app/static/assets/hBP03-EliteSpark/*
+!app/static/assets/hBP03-EliteSpark/hBP03-002-SEC.png
+!app/static/assets/hBP03-EliteSpark/hBP03-003-SEC.png
+!app/static/assets/hBP03-EliteSpark/hBP03-005-SEC.png
+!app/static/assets/hBP03-EliteSpark/hBP03-014-UR.png
+!app/static/assets/hBP03-EliteSpark/hBP03-015-UR.png
+!app/static/assets/hBP03-EliteSpark/hBP03-056-SEC.png
 
 # hBP04 - Curious Universe
 !app/static/assets/hBP04-CuriousUniverse/
 app/static/assets/hBP04-CuriousUniverse/*
 
-# hBP05 - Enchant Legalia
-!app/static/assets/hBP05-EnchantLegalia/
-app/static/assets/hBP05-EnchantLegalia/*
+# hBP05 - Enchant Regalia
+!app/static/assets/hBP05-EnchantRegalia/
+app/static/assets/hBP05-EnchantRegalia/*
 
 # hBP06 - Ayakashi Vermillion
 !app/static/assets/hBP06-AyakashiVermillion/
