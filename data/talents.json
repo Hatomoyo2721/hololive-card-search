@@ -16,8 +16,8 @@
     "百鬼あやめ": "Nakiri Ayame",
     "癒月ちょこ": "Yuzuki Choco",
     "大空スバル": "Oozora Subaru",
-    "湊あくあ": { "name": "Minato Aqua", "graduated": true },
-    "紫咲シオン": { "name": "Murasaki Shion", "graduated": true }
+    "湊あくあ": { "name": "Minato Aqua", "status": "graduated" },
+    "紫咲シオン": { "name": "Murasaki Shion", "status": "graduated" }
   },
   "hololive GAMERS": {
     "大神ミオ": "Ookami Mio",
@@ -34,8 +34,8 @@
     "角巻わため": "Tsunomaki Watame",
     "常闇トワ": "Tokoyami Towa",
     "姫森ルーナ": "Himemori Luna",
-    "天音かなた": { "name": "Amane Kanata", "graduated": true },
-    "桐生ココ": { "name": "Kiryu Coco", "graduated": true }
+    "天音かなた": { "name": "Amane Kanata", "status": "graduated" },
+    "桐生ココ": { "name": "Kiryu Coco", "status": "graduated" }
   },
   "hololive Gen 5": {
     "雪花ラミィ": "Yukihana Lamy",
@@ -47,7 +47,7 @@
     "ラプラス・ダークネス": "La+ Darknesss",
     "鷹嶺ルイ": "Takane Lui",
     "博衣こより": "Hakui Koyori",
-    "沙花叉クロヱ": { "name": "Sakamata Chloe", "graduated": true },
+    "沙花叉クロヱ": { "name": "Sakamata Chloe", "status": "affiliate" },
     "風真いろは": "Kazama Iroha"
   },
   "hololive Indonesia - AREA15 (Gen 1)": {
@@ -69,16 +69,16 @@
     "森カリオペ": "Mori Calliope",
     "小鳥遊キアラ": "Takanashi Kiara",
     "一伊那尓栖": "Ninomae Ina'nis",
-    "ワトソン・アメリア": { "name": "Watson Amelia", "graduated": true },
-    "がうる・ぐら": { "name": "Gawr Gura", "graduated": true }
+    "ワトソン・アメリア": { "name": "Watson Amelia", "status": "affiliate" },
+    "がうる・ぐら": { "name": "Gawr Gura", "status": "graduated" }
   },
   "hololive English - Promise": {
     "IRyS": "IRyS",
     "オーロ・クロニー": "Ouro Kronii",
     "ハコス・ベールズ": "Hakos Baelz",
-    "セレス・ファウナ": { "name": "Ceres Fauna", "graduated": true },
-    "七詩ムメイ": { "name": "Nanashi Mumei", "graduated": true },
-    "九十九佐命": { "name": "Tsukumo Sana", "graduated": true }
+    "セレス・ファウナ": { "name": "Ceres Fauna", "status": "graduated" },
+    "七詩ムメイ": { "name": "Nanashi Mumei", "status": "graduated" },
+    "九十九佐命": { "name": "Tsukumo Sana", "status": "graduated" }
   },
   "hololive English - Advent": {
     "シオリ・ノヴェラ": "Shiori Novella",
@@ -98,7 +98,7 @@
     "一条莉々華": "Ichijou Ririka",
     "儒烏風亭らでん": "Juufuutei Raden",
     "轟はじめ": "Todoroki Hajime",
-    "火威青": { "name": "Hiodoshi Ao", "graduated": true }
+    "火威青": { "name": "Hiodoshi Ao", "status": "graduated" }
   },
   "hololive DEV_IS - FLOW GLOW": {
     "響咲リオナ": "Isaki Riona",
