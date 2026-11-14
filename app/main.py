@@ -8,11 +8,7 @@ app = Flask(__name__)
 
 def escape_like(value):
     """Escape LIKE wildcards so user input is matched literally."""
-    return (
-        value.replace("\\", "\\\\")
-        .replace("%", "\\%")
-        .replace("_", "\\_")
-    )
+    return value.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
 
 
 @app.route("/")
@@ -75,10 +71,13 @@ def get_cards():
             query += ")"
 
     if booster:
+        # Filter by `version` instead of card number: reprint / Start Deck /
+        # Cheer cards keep their old card number but still belong to the new
+        # booster. version looks like "[hBP04] Curious Universe".
         query += """
-            AND card_number LIKE ? ESCAPE '\\'
+            AND version LIKE ? ESCAPE '\\'
         """
-        params.append(f"{escape_like(booster)}-%")
+        params.append(f"[{escape_like(booster)}]%")
 
     query += """
         ORDER BY version, card_index, card_number, rarity

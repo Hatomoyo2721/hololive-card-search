@@ -25,15 +25,32 @@ function safe(value) {
     return (value || "").replace(/[^A-Za-z0-9_-]/g, "");
 }
 
-// Some images are stored as "<number>-<rarity>.png", others as "<number>.png".
-export function getImageCandidates(card) {
-    const prefix = card.card_number.match(/^(h[A-Za-z]{2}\d{2})/)?.[1];
+function prefixOf(cardNumber) {
+    return (cardNumber || "").match(/^(h[A-Za-z]{2}\d{2})/)?.[1];
+}
 
-    if (!prefix) {
-        return [PLACEHOLDER];
+// Reprints keep their old card number but are sold in the new booster, so the
+// image lives under the booster named in `version` ([hBP04] ...). Fall back to
+// the card number prefix for rows without a usable version.
+function folderOf(card) {
+    const fromVersion = (card.version || "").match(/\[(h[A-Za-z]{2}\d{2})\]/)?.[1];
+
+    if (fromVersion) {
+        const folder = boosterFolders[fromVersion];
+
+        if (folder) {
+            return folder;
+        }
     }
 
-    const folder = boosterFolders[prefix] || startDeckFolders[prefix];
+    const prefix = prefixOf(card.card_number);
+
+    return boosterFolders[prefix] || startDeckFolders[prefix] || null;
+}
+
+// Some images are stored as "<number>-<rarity>.png", others as "<number>.png".
+export function getImageCandidates(card) {
+    const folder = folderOf(card);
 
     if (!folder) {
         return [PLACEHOLDER];
