@@ -42,11 +42,19 @@ app/static/assets/hBP03-EliteSpark/*
 !app/static/assets/hBP03-EliteSpark/hBP03-005-SEC.png
 !app/static/assets/hBP03-EliteSpark/hBP03-014-UR.png
 !app/static/assets/hBP03-EliteSpark/hBP03-015-UR.png
-!app/static/assets/hBP03-EliteSpark/hBP03-056-SEC.png
+!app/static/assets/hBP03-EliteSpark/hBP03-056-UR.png
 
 # hBP04 - Curious Universe
 !app/static/assets/hBP04-CuriousUniverse/
 app/static/assets/hBP04-CuriousUniverse/*
+!app/static/assets/hBP04-CuriousUniverse/hBP04-001-SEC.png
+!app/static/assets/hBP04-CuriousUniverse/hBP04-004-SEC.png
+!app/static/assets/hBP04-CuriousUniverse/hBP04-005-SEC.png
+!app/static/assets/hBP04-CuriousUniverse/hBP04-006-SEC.png
+!app/static/assets/hBP04-CuriousUniverse/hBP04-007-UR.png
+!app/static/assets/hBP04-CuriousUniverse/hBP04-042-UR.png
+!app/static/assets/hBP04-CuriousUniverse/hBP04-059-UR.png
+!app/static/assets/hBP04-CuriousUniverse/hBP04-066-UR.png
 
 # hBP05 - Enchant Regalia
 !app/static/assets/hBP05-EnchantRegalia/
