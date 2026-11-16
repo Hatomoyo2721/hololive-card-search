@@ -59,6 +59,12 @@ app/static/assets/hBP04-CuriousUniverse/*
 # hBP05 - Enchant Regalia
 !app/static/assets/hBP05-EnchantRegalia/
 app/static/assets/hBP05-EnchantRegalia/*
+!app/static/assets/hBP05-EnchantRegalia/hBP05-002-SEC.png
+!app/static/assets/hBP05-EnchantRegalia/hBP05-003-SEC.png
+!app/static/assets/hBP05-EnchantRegalia/hBP05-005-SEC.png
+!app/static/assets/hBP05-EnchantRegalia/hBP05-016-SEC.png
+!app/static/assets/hBP05-EnchantRegalia/hBP05-080-SEC.png
+!app/static/assets/hBP05-EnchantRegalia/hBP05-037-UR.png
 
 # hBP06 - Ayakashi Vermillion
 !app/static/assets/hBP06-AyakashiVermillion/
