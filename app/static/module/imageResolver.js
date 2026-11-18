@@ -48,7 +48,8 @@ function folderOf(card) {
     return boosterFolders[prefix] || startDeckFolders[prefix] || null;
 }
 
-// Some images are stored as "<number>-<rarity>.png", others as "<number>.png".
+// Every card image is "<number>-<rarity>.webp". A missing file falls through to
+// the placeholder via the onerror chain in cardSearch.js.
 export function getImageCandidates(card) {
     const folder = folderOf(card);
 
@@ -59,9 +60,9 @@ export function getImageCandidates(card) {
     const base = `/static/assets/${folder}/${safe(card.card_number)}`;
     const rarity = safe(card.rarity);
 
-    if (rarity) {
-        return [`${base}-${rarity}.png`, `${base}.png`, PLACEHOLDER];
+    if (!rarity) {
+        return [PLACEHOLDER];
     }
 
-    return [`${base}.png`, PLACEHOLDER];
+    return [`${base}-${rarity}.webp`, PLACEHOLDER];
 }

@@ -1,9 +1,27 @@
-from flask import Flask, jsonify, render_template, request
+from pathlib import Path
+
+from flask import Flask, jsonify, render_template, request, send_from_directory
 
 from app.database import get_connection
 from app.talents import get_japanese_aliases, translate_name
 
 app = Flask(__name__)
+
+# Card art never changes once scraped, so let the browser keep it. Without this
+# Flask sends "no-cache" and every visible card triggers a revalidation round
+# trip on each page load. Scoped to /static/assets so edits to JS/CSS still show
+# up on a normal reload.
+CARD_ART_MAX_AGE = 60 * 60 * 24 * 30  # 30 days
+
+
+@app.route("/static/assets/<path:filename>")
+def card_art(filename):
+    """Serve card images with a long cache, leaving JS/CSS as no-cache."""
+    return send_from_directory(
+        Path(app.static_folder) / "assets",
+        filename,
+        max_age=CARD_ART_MAX_AGE,
+    )
 
 
 def escape_like(value):
