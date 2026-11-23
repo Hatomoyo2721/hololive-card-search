@@ -20,8 +20,8 @@ This is **_not an official product_**, made purely for personal interest
 - Search by talent name (English, Romaji, or Japanese)
 - Search by card number (e.g. `hBP04-066`)
 - Filter cards by booster pack
-- Filter cards by rarity (dropdown, with a rarity legend in the search guide)
-- Interactive search guide: rarity chips double as filter shortcuts
+- Filter cards by rarity
+- Search guide with examples for name and card ID searches
 - Lightweight and responsive interface
 - Local SQLite database
 

@@ -3,7 +3,7 @@ from pathlib import Path
 from flask import Flask, jsonify, render_template, request, send_from_directory
 
 from app.database import get_connection
-from app.rarities import ALL_RARITIES, BASIC_RARITIES, PARALLEL_RARITIES
+from app.rarities import BASIC_RARITIES, PARALLEL_RARITIES
 from app.talents import get_japanese_aliases, translate_name
 
 app = Flask(__name__)
@@ -36,7 +36,6 @@ def home():
         "search.html",
         basic_rarities=BASIC_RARITIES,
         parallel_rarities=PARALLEL_RARITIES,
-        all_rarities=ALL_RARITIES,
     )
 
 

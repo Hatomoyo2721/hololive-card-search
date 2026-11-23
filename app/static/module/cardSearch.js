@@ -123,14 +123,6 @@ function updateFilterStatus(count) {
   filterStatus.hidden = false;
 }
 
-function syncRarityChips() {
-  const current = rarityFilter.value;
-
-  document.querySelectorAll(".rarity-chip").forEach((chip) => {
-    chip.classList.toggle("is-active", chip.dataset.rarity === current);
-  });
-}
-
 async function searchCards() {
   const keyword = searchInput.value.trim();
   const booster = boosterFilter.value;
@@ -143,7 +135,6 @@ async function searchCards() {
   activeRequest = new AbortController();
   const { signal } = activeRequest;
 
-  syncRarityChips();
   renderLoading();
 
   try {
@@ -205,21 +196,6 @@ function initSearchGuide() {
       searchHelp.classList.remove("is-open");
       infoButton.setAttribute("aria-expanded", "false");
     }
-  });
-
-  // Rarity chips double as filter shortcuts, so the guide explains and does.
-  document.querySelectorAll(".rarity-chip").forEach((chip) => {
-    chip.addEventListener("click", () => {
-      const code = chip.dataset.rarity;
-      const alreadyActive = rarityFilter.value === code;
-
-      rarityFilter.value = alreadyActive ? "" : code;
-
-      searchHelp.classList.remove("is-open");
-      infoButton.setAttribute("aria-expanded", "false");
-
-      searchCards();
-    });
   });
 }
 

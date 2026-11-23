@@ -89,38 +89,6 @@
                     Each pack also lists its reprints, Start Deck and Cheer cards.
                   </p>
                 </div>
-
-                <div class="guide-row">
-                  <span class="guide-label">
-                    <i class="fa-solid fa-star"></i>
-                    Rarity
-                  </span>
-                  <p class="guide-text">
-                    Search text and both filters combine. Pick a rarity below to apply it.
-                  </p>
-                </div>
-              </div>
-
-              <div class="tooltip-section">
-                <h3>Basic Rarities</h3>
-                <div class="rarity-list">
-                  {% for code, name in basic_rarities %}
-                  <button type="button" class="rarity-chip" data-rarity="{{ code }}" title="Filter by {{ code }}">
-                    <b>{{ code }}</b><span>{{ name }}</span>
-                  </button>
-                  {% endfor %}
-                </div>
-              </div>
-
-              <div class="tooltip-section">
-                <h3>Parallel / Secret Rarities</h3>
-                <div class="rarity-list">
-                  {% for code, name in parallel_rarities %}
-                  <button type="button" class="rarity-chip" data-rarity="{{ code }}" title="Filter by {{ code }}">
-                    <b>{{ code }}</b><span>{{ name }}</span>
-                  </button>
-                  {% endfor %}
-                </div>
               </div>
 
             </div>
