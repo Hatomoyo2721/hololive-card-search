@@ -9,6 +9,7 @@ const boosterFolders = {
     hBP06: "hBP06-AyakashiVermillion",
     hBP07: "hBP07-DivaFever",
     hBP08: "hBP08-BouncerBound",
+    hBP09: "hBP09-VolumeVortex",
 };
 
 // Start decks are sold inside a booster, so their images live in that folder.

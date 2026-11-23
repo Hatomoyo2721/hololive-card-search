@@ -68,11 +68,39 @@ app/static/assets/hBP05-EnchantRegalia/*
 # hBP06 - Ayakashi Vermillion
 !app/static/assets/hBP06-AyakashiVermillion/
 app/static/assets/hBP06-AyakashiVermillion/*
+!app/static/assets/hBP06-AyakashiVermillion/hBP06-001-SEC.webp
+!app/static/assets/hBP06-AyakashiVermillion/hBP06-003-SEC.webp
+!app/static/assets/hBP06-AyakashiVermillion/hBP06-004-SEC.webp
+!app/static/assets/hBP06-AyakashiVermillion/hBP06-008-SEC.webp
+!app/static/assets/hBP06-AyakashiVermillion/hBP06-039-UR.webp
+!app/static/assets/hBP06-AyakashiVermillion/hBP06-066-UR.webp
 
 # hBP07 - Diva Fever
 !app/static/assets/hBP07-DivaFever/
 app/static/assets/hBP07-DivaFever/*
+!app/static/assets/hBP07-DivaFever/hBP07-002-SEC.webp
+!app/static/assets/hBP07-DivaFever/hBP07-003-SEC.webp
+!app/static/assets/hBP07-DivaFever/hBP07-006-SEC.webp
+!app/static/assets/hBP07-DivaFever/hBP07-007-SEC.webp
+!app/static/assets/hBP07-DivaFever/hBP07-049-UR.webp
+!app/static/assets/hBP07-DivaFever/hBP07-074-UR.webp
 
 # hBP08 - Bouncer Bound
 !app/static/assets/hBP08-BouncerBound/
 app/static/assets/hBP08-BouncerBound/*
+!app/static/assets/hBP08-BouncerBound/hBP08-003-SEC.webp
+!app/static/assets/hBP08-BouncerBound/hBP08-004-SEC.webp
+!app/static/assets/hBP08-BouncerBound/hBP08-005-SEC.webp
+!app/static/assets/hBP08-BouncerBound/hBP08-006-SEC.webp
+!app/static/assets/hBP08-BouncerBound/hBP08-007-SEC.webp
+!app/static/assets/hBP08-BouncerBound/hBP08-027-UR.webp
+
+# hBP09 - Volume Vortex
+!app/static/assets/hBP09-VolumeVortex/
+app/static/assets/hBP09-VolumeVortex/*
+!app/static/assets/hBP09-VolumeVortex/hBP09-002-SEC.webp
+!app/static/assets/hBP09-VolumeVortex/hBP09-003-SEC.webp
+!app/static/assets/hBP09-VolumeVortex/hBP09-004-SEC.webp
+!app/static/assets/hBP09-VolumeVortex/hBP09-006-SEC.webp
+!app/static/assets/hBP09-VolumeVortex/hBP09-014-UR.webp
+!app/static/assets/hBP09-VolumeVortex/hBP09-021-UR.webp
