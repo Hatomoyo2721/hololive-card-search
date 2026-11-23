@@ -3,6 +3,7 @@ from pathlib import Path
 from flask import Flask, jsonify, render_template, request, send_from_directory
 
 from app.database import get_connection
+from app.rarities import ALL_RARITIES, BASIC_RARITIES, PARALLEL_RARITIES
 from app.talents import get_japanese_aliases, translate_name
 
 app = Flask(__name__)
@@ -31,13 +32,19 @@ def escape_like(value):
 
 @app.route("/")
 def home():
-    return render_template("search.html")
+    return render_template(
+        "search.html",
+        basic_rarities=BASIC_RARITIES,
+        parallel_rarities=PARALLEL_RARITIES,
+        all_rarities=ALL_RARITIES,
+    )
 
 
 @app.route("/cards")
 def get_cards():
     keyword = request.args.get("q", "").strip()
     booster = request.args.get("booster", "").strip()
+    rarity = request.args.get("rarity", "").strip().upper()
 
     conn = get_connection()
     cur = conn.cursor()
@@ -50,43 +57,38 @@ def get_cards():
     params = []
 
     if keyword:
-        if keyword.lower().startswith("rarity="):
-            rarity_keyword = keyword.split("=", 1)[1].strip().upper()
+        pattern = f"%{escape_like(keyword)}%"
 
-            if rarity_keyword:
-                query += """
-                    AND UPPER(TRIM(rarity)) = ?
-                """
-                params.append(rarity_keyword)
-            else:
-                query += """
-                    AND 1 = 0
-                """
-        else:
-            pattern = f"%{escape_like(keyword)}%"
+        query += """
+            AND (
+                name_en LIKE ? ESCAPE '\\'
+                OR original_title LIKE ? ESCAPE '\\'
+                OR card_number LIKE ? ESCAPE '\\'
+        """
+        params.extend([pattern, pattern, pattern])
 
+        # Also match the Japanese talent name behind a romaji search.
+        for japanese_name in get_japanese_aliases(keyword):
             query += """
-                AND (
-                    name_en LIKE ? ESCAPE '\\'
-                    OR original_title LIKE ? ESCAPE '\\'
-                    OR card_number LIKE ? ESCAPE '\\'
+                OR name_en LIKE ? ESCAPE '\\'
+                OR original_title LIKE ? ESCAPE '\\'
             """
-            params.extend([pattern, pattern, pattern])
+            params.extend(
+                [
+                    f"%{escape_like(japanese_name)}%",
+                    f"%{escape_like(japanese_name)}%",
+                ]
+            )
 
-            # Also match the Japanese talent name behind a romaji search.
-            for japanese_name in get_japanese_aliases(keyword):
-                query += """
-                    OR name_en LIKE ? ESCAPE '\\'
-                    OR original_title LIKE ? ESCAPE '\\'
-                """
-                params.extend(
-                    [
-                        f"%{escape_like(japanese_name)}%",
-                        f"%{escape_like(japanese_name)}%",
-                    ]
-                )
+        query += ")"
 
-            query += ")"
+    if rarity:
+        # Codes are already normalized to upper case; TRIM guards old rows that
+        # were imported with stray spaces.
+        query += """
+            AND UPPER(TRIM(rarity)) = ?
+        """
+        params.append(rarity)
 
     if booster:
         # Filter by `version` instead of card number: reprint / Start Deck /

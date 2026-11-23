@@ -5,6 +5,10 @@ const container = document.getElementById("card-container");
 const searchInput = document.getElementById("search");
 const searchBtn = document.getElementById("search-btn");
 const boosterFilter = document.getElementById("booster-filter");
+const rarityFilter = document.getElementById("rarity-filter");
+const filterStatus = document.getElementById("filter-status");
+const filterStatusText = document.getElementById("filter-status-text");
+const filterClear = document.getElementById("filter-clear");
 
 let activeRequest = null;
 
@@ -22,7 +26,7 @@ function renderEmpty() {
     <div class="state-message">
       <i class="fa-solid fa-magnifying-glass"></i>
       <p>No cards found</p>
-      <span>Try another card name, card number, or booster pack.</span>
+      <span>Try another card name, card number, or clear a filter.</span>
     </div>
   `;
 }
@@ -92,9 +96,45 @@ function render(cards) {
   container.appendChild(fragment);
 }
 
+function activeFilterLabels() {
+  const labels = [];
+
+  if (boosterFilter.value) {
+    labels.push(boosterFilter.selectedOptions[0].textContent);
+  }
+
+  if (rarityFilter.value) {
+    labels.push(`Rarity ${rarityFilter.value}`);
+  }
+
+  return labels;
+}
+
+function updateFilterStatus(count) {
+  const labels = activeFilterLabels();
+
+  if (labels.length === 0) {
+    filterStatus.hidden = true;
+    return;
+  }
+
+  const cards = count === 1 ? "1 card" : `${count} cards`;
+  filterStatusText.textContent = `${labels.join(" + ")} — ${cards}`;
+  filterStatus.hidden = false;
+}
+
+function syncRarityChips() {
+  const current = rarityFilter.value;
+
+  document.querySelectorAll(".rarity-chip").forEach((chip) => {
+    chip.classList.toggle("is-active", chip.dataset.rarity === current);
+  });
+}
+
 async function searchCards() {
   const keyword = searchInput.value.trim();
   const booster = boosterFilter.value;
+  const rarity = rarityFilter.value;
 
   if (activeRequest) {
     activeRequest.abort();
@@ -103,14 +143,16 @@ async function searchCards() {
   activeRequest = new AbortController();
   const { signal } = activeRequest;
 
+  syncRarityChips();
   renderLoading();
 
   try {
-    const cards = await fetchCards(keyword, booster, signal);
+    const cards = await fetchCards(keyword, booster, rarity, signal);
 
     if (signal.aborted) return;
 
     render(cards);
+    updateFilterStatus(cards.length);
   } catch (err) {
     if (err.name === "AbortError") return;
 
@@ -164,6 +206,21 @@ function initSearchGuide() {
       infoButton.setAttribute("aria-expanded", "false");
     }
   });
+
+  // Rarity chips double as filter shortcuts, so the guide explains and does.
+  document.querySelectorAll(".rarity-chip").forEach((chip) => {
+    chip.addEventListener("click", () => {
+      const code = chip.dataset.rarity;
+      const alreadyActive = rarityFilter.value === code;
+
+      rarityFilter.value = alreadyActive ? "" : code;
+
+      searchHelp.classList.remove("is-open");
+      infoButton.setAttribute("aria-expanded", "false");
+
+      searchCards();
+    });
+  });
 }
 
 function initEvents() {
@@ -176,6 +233,13 @@ function initEvents() {
   });
 
   boosterFilter.addEventListener("change", searchCards);
+  rarityFilter.addEventListener("change", searchCards);
+
+  filterClear.addEventListener("click", () => {
+    boosterFilter.value = "";
+    rarityFilter.value = "";
+    searchCards();
+  });
 }
 
 (async function init() {

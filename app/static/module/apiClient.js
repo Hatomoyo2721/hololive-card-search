@@ -1,4 +1,4 @@
-export async function fetchCards(keyword = "", booster = "", signal) {
+export async function fetchCards(keyword = "", booster = "", rarity = "", signal) {
   const params = new URLSearchParams();
 
   if (keyword) {
@@ -7,6 +7,10 @@ export async function fetchCards(keyword = "", booster = "", signal) {
 
   if (booster) {
     params.set("booster", booster);
+  }
+
+  if (rarity) {
+    params.set("rarity", rarity);
   }
 
   const query = params.toString();
