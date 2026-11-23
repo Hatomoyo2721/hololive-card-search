@@ -108,6 +108,8 @@ body {
   text-align: center;
   transition: transform 0.2s, box-shadow 0.2s;
   cursor: pointer;
+  /* Long unbreakable card names must not stretch their grid column. */
+  min-width: 0;
 }
 
 .card:hover {
