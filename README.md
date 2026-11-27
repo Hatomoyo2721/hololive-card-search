@@ -16,13 +16,16 @@ This is **_not an official product_**, made purely for personal interest
 
 <h1>Features</h1>
 
-- Browse cards in a grid layout
+- Browse cards in a responsive grid (3 columns on mobile)
+- Paginated results, 24 cards per page
 - Search by talent name (English, Romaji, or Japanese)
 - Search by card number (e.g. `hBP04-066`)
 - Filter cards by booster pack
 - Filter cards by rarity
+- Filter cards with multiple versions (same card number in other boosters)
+- Card detail popup with scroll animation, keyboard navigation and dark mode
+- Variant picker: open every printing of a card number, including other boosters
 - Search guide with examples for name and card ID searches
-- Lightweight and responsive interface
 - Local SQLite database
 
 <br>
