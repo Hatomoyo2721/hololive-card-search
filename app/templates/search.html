@@ -137,6 +137,17 @@
             </select>
           </label>
 
+          <label class="filter-field">
+            <span class="filter-label">
+              <i class="fa-solid fa-clone"></i>
+              Versions
+            </span>
+            <select id="variant-filter" aria-label="Filter by version">
+              <option value="">All Cards</option>
+              <option value="multi">Multiple Versions</option>
+            </select>
+          </label>
+
         </div>
 
         <div class="filter-status" id="filter-status" hidden>
@@ -151,7 +162,93 @@
 
       <div id="card-container"></div>
 
+      <nav id="pagination" class="pagination" aria-label="Card results pages" hidden>
+        <button id="page-prev" class="page-btn page-step" type="button" aria-label="Previous page">
+          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+          <span>Prev</span>
+        </button>
+
+        <div id="page-numbers" class="page-numbers"></div>
+
+        <span id="page-summary" class="page-summary" aria-live="polite"></span>
+
+        <button id="page-next" class="page-btn page-step" type="button" aria-label="Next page">
+          <span>Next</span>
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </button>
+      </nav>
+
     </main>
+  </div>
+
+  <div id="card-modal" class="card-modal" hidden>
+    <div class="card-modal__backdrop" data-card-modal-close></div>
+
+    <div class="card-modal__scroll" role="dialog" aria-modal="true" aria-labelledby="card-modal-title">
+      <span class="scroll-roller scroll-roller--left" aria-hidden="true"></span>
+
+      <div class="card-modal__viewport">
+        <div class="card-modal__paper">
+          <button type="button" id="card-modal-close" class="card-modal__close" aria-label="Close card details">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          </button>
+
+          <div class="card-modal__art">
+            <img id="card-modal-image" alt="" />
+
+            <div id="card-modal-variants" class="card-modal__variants" hidden>
+              <p class="card-modal__variants-label">
+                Variants <span id="card-modal-variant-count"></span>
+              </p>
+
+              <div
+                id="card-modal-variant-list"
+                class="card-modal__variant-list"
+                role="group"
+                aria-label="Card variants"
+              ></div>
+            </div>
+          </div>
+
+          <div class="card-modal__info">
+            <p class="card-modal__eyebrow">
+              <i class="fa-solid fa-scroll" aria-hidden="true"></i>
+              Card details
+            </p>
+
+            <h2 id="card-modal-title" class="card-modal__title"></h2>
+            <p id="card-modal-original" class="card-modal__original"></p>
+
+            <div id="card-modal-badges" class="card-modal__badges">
+              <span id="card-modal-rarity" class="card-modal__badge card-modal__badge--rarity"></span>
+              <span id="card-modal-spec" class="card-modal__badge"></span>
+            </div>
+
+            <dl class="card-modal__facts">
+              <div class="card-modal__fact">
+                <dt>Card number</dt>
+                <dd id="card-modal-number"></dd>
+              </div>
+
+              <div class="card-modal__fact">
+                <dt>Booster</dt>
+                <dd>
+                  <span id="card-modal-booster"></span>
+                  <span id="card-modal-original-version" class="card-modal__fact-sub"></span>
+                </dd>
+              </div>
+            </dl>
+
+            <p class="card-modal__game">
+              <i class="fa-solid fa-dice-d20" aria-hidden="true"></i>
+              <span id="card-modal-game"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <span class="scroll-roller scroll-roller--right" aria-hidden="true"></span>
+    </div>
   </div>
 
   <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
